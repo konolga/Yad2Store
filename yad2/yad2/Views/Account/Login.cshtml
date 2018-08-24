@@ -1,0 +1,36 @@
+﻿@model yad2.Models.User
+@{
+    ViewBag.Title = "Login";
+}
+
+
+
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.ValidationSummary(true, "Log in was unsuccessful. Please correct the errors and try again.")
+        <ul class="login-register-form">
+        <div>
+            <span class="editor-label">
+                @Html.LabelFor(m => m.UserName)
+            </span>
+            <span class="editor-field">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "text-box" })
+            </span>
+        </div>
+
+        <div>
+            <span class="editor-label">
+                @Html.LabelFor(m => m.Password)
+            </span>
+            <span class="editor-field">
+                @Html.PasswordFor(m => m.Password, new { @class = "text-box" })
+            </span>
+        </div>
+       
+        <input type="submit" value="Log in" />
+
+        <p>
+            @Html.ActionLink("Register", "Register") if you don't have an account.
+        </p>
+        </ul>
+}

@@ -1,0 +1,33 @@
+﻿@using System.Diagnostics.Eventing.Reader
+@using MvcSiteMapProvider.Reflection
+@model IEnumerable<yad2.Models.Product>
+
+    <table class="cart-table">
+        <tr >
+            <th> Title</th>
+            <th> Price</th>
+            <th> Remove</th>
+        
+        </tr>
+    @if (Model != null)
+    {
+        foreach (var product in Model)
+        {
+            <tr >
+                <th> @Html.DisplayFor(model => product.Title)</th>
+                <th> @Html.Action("GetPrice", "Product", new {id = product.Id})</th>
+                <th> <button class="cart-button" onclick="location.href = '@Url.Action("Remove", "Cart", product)'">Remove</button></th>
+            </tr>
+        }
+    }
+    </table>
+
+        <div>
+            <span >
+                <button class="display-button" onclick="location.href = '@Url.Action("BuyAll", "Cart")'">Buy all products</button>
+            </span>
+        </div>
+   
+    
+
+

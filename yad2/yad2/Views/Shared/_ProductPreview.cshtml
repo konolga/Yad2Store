@@ -1,0 +1,54 @@
+﻿
+@using MvcSiteMapProvider.Reflection
+@model IEnumerable<yad2.Models.Product>
+
+@foreach (var product in Model)
+{
+    <div class="product-card">
+        <h3>"@product.Title"</h3>
+        <div class="product-metadata">
+            <div>
+                <span class="display-label">
+                    Created On:
+                </span>
+                <span class="display-field">
+                    @Html.DisplayFor(model => product.Date)
+                </span>
+            </div>
+            <div>
+                <span class="display-label">
+                    Price:
+                </span>
+                <span class="display-field">
+                    @Html.Action("GetPrice", "Product", new { id = product.Id })
+                </span>
+            </div>
+        </div>
+        <div>
+            <img class="product-card-img-small" src="@Url.Action("GetProductImage", "Product", new {id = product.Id, index = 1})" />
+        </div>
+        <div class="product-metadata">
+            <div>
+                <span class="display-label">
+                    Short description:
+                </span>
+                <span class="display-field">
+                    @Html.DisplayFor(model => product.ShortDescription)
+                </span>
+            </div>
+
+            <div>
+                <span>
+                    <button class="display-button" onclick="location.href = '@Url.Action("Details", "Product", new {id = product.Id})'">More details</button>
+                </span>
+                <span>
+                    <button class="display-button" onclick="location.href = '@Url.Action("AddToCart", "Cart", product)'">Buy</button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+}
+
+@*@Html.ActionLink("Display", "Display", new { id = item.PhotoID }) |
+    @Html.Action("Delete", "Delete", new { id = item.PhotoID })*@

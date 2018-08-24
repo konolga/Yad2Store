@@ -1,0 +1,71 @@
+﻿@model yad2.Models.Product
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div class="product-card" id="big">
+    <h3>@Model.Title</h3>
+    <div>
+        <span class="display-label">
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </span>
+
+        <span class="display-field">
+            @Html.DisplayFor(model => model.User.FirstName)
+        </span>
+    </div>
+
+    <div>
+        <span class="display-label">
+            @Html.DisplayNameFor(model => model.LongDescription)
+        </span>
+
+        <span class="display-field">
+            @Html.DisplayFor(model => model.LongDescription)
+        </span>
+    </div>
+    <div>
+        <span class="display-label">
+            @Html.DisplayNameFor(model => model.Date)
+        </span>
+
+        <span class="display-field">
+            @Html.DisplayFor(model => model.Date)
+        </span>
+    </div>
+    <div>
+        <span class="display-label">
+            @Html.DisplayNameFor(model => model.Price)
+        </span>
+        
+
+        <span class="display-field">
+            @Html.Action("GetPrice", "Product", new { id = Model.Id })
+        </span>
+    </div>
+    
+    
+    <div>
+        <span>
+            <button class="display-button" onclick="location.href = '@Url.Action("AddToCart", "Cart", Model)'">Buy</button>
+
+        </span>
+    </div>
+    
+
+    <div>
+        <span class="display-label" >
+                <img class="product-card-img-big" src="@Url.Action("GetProductImage", "Product", new {id = Model.Id, index = 1})"/>
+                <img class="product-card-img-big" src="@Url.Action("GetProductImage", "Product", new {id = Model.Id, index = 2})"/>
+                <img class="product-card-img-big" src="@Url.Action("GetProductImage", "Product", new {id = Model.Id, index = 3})"/>
+
+        </span>
+    </div>
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+        @Html.ActionLink("Back to List", "Index", "Home")
+    </p>
+
+
+</div>

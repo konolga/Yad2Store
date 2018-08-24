@@ -1,0 +1,32 @@
+﻿
+@model IEnumerable<yad2.Models.Product>
+
+
+@*<script src="http://code.jquery.com/jquery-3.3.1.js"></script>*@
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+@*<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>*@
+<script src="~/Scripts/SortingJavaScript.js"></script>
+
+@{
+    ViewBag.Title = "Yad 2 store";
+}
+
+
+<div id="myRadioGroup">
+    <label>
+        Sort by product name
+        <input type="radio" value="name" name="sortOrder">
+    </label>
+
+    <label>
+        Sort by product date
+        <input type="radio" value="date" name="sortOrder">
+    </label>
+</div>
+<div id="sortbyname" class="desc" style="display: none">
+    @Html.Action("_ProductPreview", "Product", new { sortOrder = "name", number = 0 })
+</div>
+
+<div id="sortbydate" class="desc">
+    @Html.Action("_ProductPreview", "Product", new { sortOrder = "date", number = 0 })
+</div>

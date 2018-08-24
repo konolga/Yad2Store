@@ -1,0 +1,198 @@
+﻿body {
+    background: rgb(218, 243, 210);
+    background-repeat: repeat-x;
+    font-family: segoe ui, verdana, arial, sans-serif;
+    font-weight: 300;
+    color: #333333;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.login-controls {
+    float: left;
+    width: 115px;
+    background-color: beige;
+}
+
+#topmenu {
+    background-color: #538345;
+}
+
+#login-form {
+   
+}
+
+ul {
+    list-style-type: none;
+    margin: 5px;
+    padding: 0;
+    line-height: 2em;
+    overflow: hidden;
+}
+
+li {
+    border-radius: 10px;
+    float: left;
+    
+    
+}
+
+    li a {
+        display: flex;
+        color: black;
+        font-size: 25px;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        li a:hover:not(.active) {
+            background-color: #333;
+            border-radius: 10px;
+        }
+
+
+ 
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.editor-field {
+    display: inline-block;
+    margin: 2px;
+   
+}
+
+.editor-label {
+    display: inline-block;
+    width: 250px;
+    margin: 2px;
+    vertical-align: top;
+
+}
+
+.text-box {
+    width: 400px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.login-register-form {
+    width: 400px;
+}
+/* Set product preview */
+.product-card {
+    background-color: #eeeeee;
+    border-color: #538345;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px;
+    color: #333333;
+    padding: 15px;
+    margin: 5px;
+    height: 500px;
+    width: 280px;
+    float: left;
+}
+#big.product-card  {
+        height: 1800px;
+        width: 540px;
+    }
+
+    .product-card-img-small {
+        width: 250px;
+        max-height: 320px;
+    }
+
+.product-card-img-big {
+    width: 500px;
+    max-height: 640px;
+}
+
+
+.product-metadata {
+    width: 800px;
+    border: 1px, solid, black;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.display-label {
+    display: inline-block;
+    width: 150px;
+    margin: 2px;
+}
+
+.display-field {
+    margin: 2px;
+    width: 350px;
+}
+
+.display-button {
+    background-color: #538345; /* Green */
+    border: none;
+    color: wheat;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+    .display-button:hover {
+        background-color: wheat;
+        color: #538345;
+    }
+
+
+/* Set cart */
+cart-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+cart-table th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+.cart-table  tr:nth-child(even) {
+    background-color: #538345;
+}
+
+    .cart-table tr:nth-child(odd) {
+        background-color: wheat;
+    }
+.cart-button {
+    background-color: crimson;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+    .cart-button:hover {
+        background-color: #538345;
+
+    }
