@@ -24,7 +24,7 @@ namespace yad2.Controllers
         [AllowAnonymous]
         public ActionResult Login(User model, string returnUrl)
         {
-            //if (ModelState.IsValid)
+            if (ModelState.IsValid)
 
             using (var context = new Yad2DbContext())
             {
