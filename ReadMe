@@ -2,7 +2,9 @@
 User Can sell products, quantity of each product is one. 
 When user is logged in, there is 10% discont. 
 Any user can create or buy a product. 
+
 # UI explanation
+
 ## User login and register
 Once User is logged in, we can see his name. The price decreased.
 ![Alt text](https://github.com/olgush/Yad2Store/yad2/Assets/login.JPG "Login")
