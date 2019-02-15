@@ -1,4 +1,5 @@
-﻿@model yad2.Models.Product
+﻿@using yad2.Models
+@model yad2.Models.Product
 
 @{
     ViewBag.Title = Model.Title;
@@ -55,10 +56,13 @@
     
 
     <div>
-        <span class="display-label" >
-                <img class="product-card-img-big" src="@Url.Action("GetProductImage", "Product", new {id = Model.Id, index = 1})"/>
-                <img class="product-card-img-big" src="@Url.Action("GetProductImage", "Product", new {id = Model.Id, index = 2})"/>
-                <img class="product-card-img-big" src="@Url.Action("GetProductImage", "Product", new {id = Model.Id, index = 3})"/>
+        <span class="display-label">
+
+            <img src="@Url.Content(Model.Picture1)" />
+            <img src="@Url.Content(Model.Picture2)" />
+            <img src="@Url.Content(Model.Picture3)" />
+
+      
 
         </span>
     </div>

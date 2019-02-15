@@ -43,4 +43,16 @@ namespace yad2.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }
+
+    public class Login
+    {
+        [Required]
+        [Display(Name = "User name")]
+        public string UserName { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+    }
 }

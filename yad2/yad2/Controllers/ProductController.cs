@@ -33,7 +33,7 @@ namespace yad2.Controllers
             return PartialView("_ProductPreview", products);
         }
 
-        // GET: Products/Details/5
+       //  GET: Products/Details/5
         public ActionResult Details( int? id)
         {
             if (id == null)
@@ -50,7 +50,7 @@ namespace yad2.Controllers
             return View("Details", product);
         }
 
-        // GET: Products/Create
+     //    GET: Products/Create
         public ActionResult Create()
         {
             ViewBag.OwnerId = new SelectList(db.Users, "ID", "FirstName");
@@ -58,10 +58,10 @@ namespace yad2.Controllers
             return View();
         }
 
-        // POST: Products/Create
+      //   POST: Products/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Product product)
+        public ActionResult Create(Product product, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
@@ -80,14 +80,25 @@ namespace yad2.Controllers
                             Price = product.Price,
                             Date = DateTime.Now,
                             UserId = loggedUserId,
-                            OwnerId= loggedUserId,
-                            State = 0
-                    };
+                            OwnerId = loggedUserId,
+                            State = 0,
+                            Picture1 = product.Picture1,
+                            Picture2 = product.Picture2,
+                            Picture3 = product.Picture3
+                        };
 
-                        context.Products.Add(newProduct);
-                        context.SaveChanges();
-                      return RedirectToAction("Details","Product",new{iD =newProduct.Id});
 
+                        if (image != null)
+                        {
+
+                         //   newProduct.Picture1 = new byte[image.ContentLength];
+                         //   image.InputStream.Read(product.Picture1, 0, image.ContentLength);
+
+                            context.Products.Add(newProduct);
+                            context.SaveChanges();
+                            return RedirectToAction("Details", "Product", new {iD = newProduct.Id});
+
+                        }
                     }
                     catch (Exception e)
                     {
@@ -100,7 +111,7 @@ namespace yad2.Controllers
 
         }
 
-        // GET: Products/Edit/5
+      //   GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -119,9 +130,9 @@ namespace yad2.Controllers
             return View(product);
         }
 
-        // POST: Products/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+         //POST: Products/Edit/5
+         //To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+         //more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include =
@@ -140,7 +151,7 @@ namespace yad2.Controllers
             return View(product);
         }
 
-        // GET: Products/Delete/5
+      //   GET: Products/Delete/5
         public ActionResult Disable(int? id)
         {
             if (id == null)
@@ -157,7 +168,7 @@ namespace yad2.Controllers
             return RedirectToAction("Index");
         }
 
-        // POST: Products/Delete/5
+       //  POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DisableConfirmed(int id)
@@ -170,12 +181,12 @@ namespace yad2.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            //if (disposing)
-            //{
-            //    db.Dispose();
-            //}
+            if (disposing)
+            {
+                db.Dispose();
+            }
 
-            //base.Dispose(disposing);
+            base.Dispose(disposing);
         }
 
         [OutputCache(Duration = 600, Location = OutputCacheLocation.Server, VaryByParam = "id")]
@@ -189,13 +200,13 @@ namespace yad2.Controllers
                 switch (index)
                 {                       
                     case 1:
-                        if(product.Picture1!=null) res = File(product.Picture1, "jpg");
+                        if(product.Picture1!=null) res = File(GetFileBytes(product.Picture1), "jpg"); 
                         break;
                     case 2:
-                        if (product.Picture2 != null) res = File(product.Picture2, "jpg");
+                        if (product.Picture2 != null) res = File(GetFileBytes(product.Picture2), "jpg");
                         break;
                     case 3:
-                        if (product.Picture3 != null) res = File(product.Picture3, "jpg");
+                        if (product.Picture3 != null) res = File(GetFileBytes(product.Picture3), "jpg");
                         break;
                 }
             }
@@ -224,10 +235,10 @@ namespace yad2.Controllers
                 Session["view"] = listView;
             }
             
-            //if we want to show all avaliable products
+           // if we want to show all avaliable products
             if (number == 0)
             {
-                //show all products
+              //  show all products
                 switch (sortOrder)
                 {
                     case "name":
@@ -243,7 +254,7 @@ namespace yad2.Controllers
                 
             }
 
-            //if we want to show specific product
+          //  if we want to show specific product
             else
             {
                 listView = (from p in listView orderby p.Date descending select p).Take(number).ToList();
@@ -255,7 +266,7 @@ namespace yad2.Controllers
 
         public byte[] GetFileBytes(string path)
         {
-        
+        //exception - to describe here
         using (var fileOnDisk = new FileStream(HttpRuntime.AppDomainAppPath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
         {
             byte[] fileBytes;
@@ -288,4 +299,4 @@ namespace yad2.Controllers
 }
 
 
-    
+

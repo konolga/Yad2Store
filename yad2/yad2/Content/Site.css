@@ -23,8 +23,8 @@
     background-color: #538345;
 }
 
-#login-form {
-   
+.navbar-nav {
+    flex-direction: unset;
 }
 
 ul {
@@ -38,8 +38,6 @@ ul {
 li {
     border-radius: 10px;
     float: left;
-    
-    
 }
 
     li a {
@@ -57,7 +55,7 @@ li {
         }
 
 
- 
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -76,7 +74,6 @@ textarea {
 .editor-field {
     display: inline-block;
     margin: 2px;
-   
 }
 
 .editor-label {
@@ -84,7 +81,6 @@ textarea {
     width: 250px;
     margin: 2px;
     vertical-align: top;
-
 }
 
 .text-box {
@@ -107,19 +103,19 @@ textarea {
     color: #333333;
     padding: 15px;
     margin: 5px;
-    height: 500px;
-    width: 280px;
+
     float: left;
 }
-#big.product-card  {
-        height: 1800px;
-        width: 540px;
-    }
 
-    .product-card-img-small {
-        width: 250px;
-        max-height: 320px;
-    }
+#big.product-card {
+    height: 1800px;
+    width: 540px;
+}
+
+.product-card-img-small {
+
+    max-height: 320px;
+}
 
 .product-card-img-big {
     width: 500px;
@@ -128,8 +124,8 @@ textarea {
 
 
 .product-metadata {
-    width: 800px;
-    border: 1px, solid, black;
+
+    border: 1px solid black;
     border-radius: 10px;
     padding: 15px;
 }
@@ -169,18 +165,19 @@ cart-table {
     width: 100%;
 }
 
-cart-table th, td {
-    text-align: left;
-    padding: 8px;
-}
+    cart-table th, td {
+        text-align: left;
+        padding: 8px;
+    }
 
-.cart-table  tr:nth-child(even) {
+.cart-table tr:nth-child(even) {
     background-color: #538345;
 }
 
-    .cart-table tr:nth-child(odd) {
-        background-color: wheat;
-    }
+.cart-table tr:nth-child(odd) {
+    background-color: wheat;
+}
+
 .cart-button {
     background-color: crimson;
     border: none;
@@ -194,5 +191,4 @@ cart-table th, td {
 
     .cart-button:hover {
         background-color: #538345;
-
     }

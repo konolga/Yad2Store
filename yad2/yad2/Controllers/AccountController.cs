@@ -22,7 +22,7 @@ namespace yad2.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Login(User model, string returnUrl)
+        public ActionResult Login(Login login, string returnUrl)
         {
             if (ModelState.IsValid)
 
@@ -31,10 +31,10 @@ namespace yad2.Controllers
                 var users = context.Users.ToList();
                 
                 User loggeduser = context.Users
-                    .FirstOrDefault(u => u.UserName == model.UserName && u.Password == model.Password);
+                    .FirstOrDefault(u => u.UserName == login.UserName && u.Password == login.Password);
                 if (loggeduser != null)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, true);
+                    FormsAuthentication.SetAuthCookie(login.UserName, true);
 
                     if (Url.IsLocalUrl(returnUrl))
                     {
@@ -52,7 +52,7 @@ namespace yad2.Controllers
                 }
             }
 
-            return View(model);
+            return View();
             
         }
 

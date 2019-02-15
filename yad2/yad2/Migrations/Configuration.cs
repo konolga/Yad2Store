@@ -3,6 +3,8 @@ using System.IO;
 using System.Web;
 using System;
 using System.Data.Entity.Migrations;
+using System.Drawing;
+using System.Web.Hosting;
 using yad2.Models;
 
 
@@ -93,11 +95,10 @@ namespace yad2.Migrations
                     ShortDescription = "short description",
                     LongDescription = "long description",
                     Date = DateTime.Parse("2018-01-01"),
-                    Price = 100
-                    //,
-                    //Picture1 = GetFileBytes("\\Images\\Photo1_1.jpg"),
-                    //Picture2 = GetFileBytes("\\Images\\Photo1_2.jpg"),
-                    //Picture3 = GetFileBytes("\\Images\\Photo1_3.jpg"),
+                    Price = 100,
+                    Picture1 = "\\Images\\Photo1_1.jpg",
+                    Picture2 = "\\Images\\Photo1_2.jpg",
+                    Picture3= "\\Images\\Photo1_3.jpg",
                 },
                 new Product
                 {
@@ -108,11 +109,10 @@ namespace yad2.Migrations
                     ShortDescription = "short description",
                     LongDescription = "long description",
                     Date = DateTime.Parse("2018-02-02"),
-                    Price = 100
-                    //,
-                    //Picture1 = GetFileBytes("\\Images\\Photo2_1.jpg"),
-                    //Picture2 = GetFileBytes("\\Images\\Photo2_2.jpg"),
-                    //Picture3 = GetFileBytes("\\Images\\Photo2_3.jpg"),
+                    Price = 100,
+                    Picture1 = "\\Images\\Photo2_1.jpg",
+                    Picture2 = "\\Images\\Photo2_2.jpg",
+                    Picture3= "\\Images\\Photo2_3.jpg",
                 },
                 new Product
                 {
@@ -123,11 +123,10 @@ namespace yad2.Migrations
                     ShortDescription = "short description",
                     LongDescription = "long description",
                     Date = DateTime.Parse("2018-03-03"),
-                    Price = 100
-                    //,
-                    //Picture1 = GetFileBytes("\\Images\\Photo3_1.jpg"),
-                    //Picture2 = GetFileBytes("\\Images\\Photo3_2.jpg"),
-                    //Picture3 = GetFileBytes("\\Images\\Photo3_3.jpg"),
+                    Price = 100,
+                    Picture1 = "\\Images\\Photo3_1.jpg",
+                    Picture2 = "\\Images\\Photo3_2.jpg",
+                    Picture3= "\\Images\\Photo3_3.jpg",
                 },
                 new Product
                 {
@@ -138,11 +137,10 @@ namespace yad2.Migrations
                     ShortDescription = "short description",
                     LongDescription = "long description",
                     Date = DateTime.Parse("2018-04-04"),
-                    Price = 100
-                   
-                    //HttpContext.Current.Server.MapPath("\\Images\\Photo1_1.jpg"))
-                    //Picture2 = GetFileBytes("\\Images\\Photo4_2.jpg"),
-                    //Picture3 = GetFileBytes("\\Images\\Photo4_3.jpg"),
+                    Price = 100,
+                    Picture1 = "\\Images\\Photo4_1.jpg",
+                    Picture2 = "\\Images\\Photo4_2.jpg",
+                    Picture3= "\\Images\\Photo4_3.jpg",
 
 
 
@@ -157,46 +155,14 @@ namespace yad2.Migrations
                     LongDescription = "long description",
                     Date = DateTime.Parse("2018-05-05"),
                     Price = 100,
-
-             //     C:\Users\olgasi\OneDrive\GitProjects\MVC\Project\yad2\yad2\Images\Photo4_1.jpg
-             //       Picture1 = GetFileBytes("~/Images/Photo4_1.jpg"),
-             //     Picture2 = GetFileBytes("\\Images\\DefaultProduct.jpg")
-            //      Picture3 = File.ReadAllBytes(HostingEnvironment.MapPath("\\Images\\Photo4_1"))
-            // Picture1= (File.ReadAllBytes(HttpContext.Current.Server.MapPath("~/Images/Photo4_1.jpg")))
-            //C:\Users\olgasi\OneDrive\GitProjects\MVC\Project\yad2\yad2\Images\Photo1_1.JPG
-            //Picture2 = GetFileBytes("\\Images\\Photo5_2.jpg"),
-            //Picture3 = GetFileBytes("\\Images\\Photo5_3.jpg"),
+                    Picture1 = "\\Images\\Photo5_1.jpg",
+                    Picture2 = "\\Images\\Photo5_2.jpg",
+                    Picture3= "\\Images\\Photo5_3.jpg",
         }
             };
             products.ForEach(s => context.Products.AddOrUpdate(s));
             context.SaveChanges();
         }
-
-        public byte[] GetFileBytes(string path)
-        {
-            using (var fileOnDisk = new FileStream(HttpRuntime.AppDomainAppPath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            {
-                byte[] fileBytes;
-                using (BinaryReader br = new BinaryReader(fileOnDisk))
-                {
-                    fileBytes = br.ReadBytes((int)fileOnDisk.Length);
-                }
-                return fileBytes;
-            }
-        }
-
-
-        //        byte[] GetFileBytes(HttpPostedFileBase path)
-        //{
-        //    Image img = Image.FromFile(path.FileName);
-        //    byte[] arr;
-        //    using (MemoryStream ms = new MemoryStream())
-        //    {
-        //        img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-        //        arr = ms.ToArray();
-        //    }
-        //    return arr;
-        //}
 
 
     }

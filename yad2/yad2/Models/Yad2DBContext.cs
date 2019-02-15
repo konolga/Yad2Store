@@ -8,7 +8,7 @@ namespace yad2.Models
 {
     public class Yad2DbContext: DbContext, IYadDbContext
     {
-        public Yad2DbContext():base("DefaultConnection")
+        public Yad2DbContext():base("Yad2DbContext")
         {
 
         }

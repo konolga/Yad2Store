@@ -53,13 +53,24 @@ namespace yad2.Models
         public int Price { get; set; }
 
 
-        public byte[] Picture1 { get; set; }
-        public byte[] Picture2 { get; set; }
-        public byte[] Picture3 { get; set; }
+        public string Picture1 { get; set; }
+        public string Picture2 { get; set; }
+        public string Picture3 { get; set; }
 
         [Required]
         public int State { get; set; }
 
 
+        //public Product(int state = 0)
+        //{
+        //    State = state;
+        //}
+        //public Product()
+        //{
+           
+        //}
+
+
     }
+
 }
