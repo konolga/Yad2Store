@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
-using System.Linq;
 using System.Web;
+
 
 namespace yad2.Models
 {
@@ -52,24 +48,13 @@ namespace yad2.Models
         [Required]
         public int Price { get; set; }
 
-
+        
         public string Picture1 { get; set; }
         public string Picture2 { get; set; }
         public string Picture3 { get; set; }
 
         [Required]
         public int State { get; set; }
-
-
-        //public Product(int state = 0)
-        //{
-        //    State = state;
-        //}
-        //public Product()
-        //{
-           
-        //}
-
 
     }
 
